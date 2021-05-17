@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <img class="index-img" src="@/assets/xiamu.jpg">
-    <h1>这是home组件222</h1>
+    <!-- <h1>这是home组件222</h1> -->
   </div>
 </template>
 
@@ -17,8 +17,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .index-img {
-  margin: 0 auto;
-  width: 900px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
+  /* width: 900px;
+  height: 500px; */
 }
 </style>
