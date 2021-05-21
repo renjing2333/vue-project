@@ -3,7 +3,7 @@
     <h1>Hello</h1>
     <el-row class="el-rowList">
       <router-link to='/table'><el-button type="primary" round>one</el-button></router-link>
-      <el-button type="primary" round>two</el-button>
+      <router-link to='/practice'><el-button type="primary" round>two</el-button></router-link>
       <el-button type="primary" round>three</el-button>
       <el-button type="primary" round>four</el-button>
       <el-button type="primary" round>five</el-button>
