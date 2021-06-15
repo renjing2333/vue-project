@@ -1,18 +1,22 @@
 <template>
-  <div class="hello">
+  <home-layout class="hello">
     <img class="index-img" src="@/assets/xiamu.jpg">
-    <!-- <h1>这是home组件222</h1> -->
-  </div>
+  </home-layout>
 </template>
 
 <script>
+import HomeLayout from '../layout/HomeLayout.vue'
 export default {
   // name: 'HelloWorld',
   // props: {
   //   msg: String
   // }
+  components: {
+    HomeLayout,
+  }
 }
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
