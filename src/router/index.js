@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Next from '../components/Next.vue';
+import pagesDefault from '../pages/home/default.vue'
+import table from '../pages/home/table.vue'
+import practice from '../pages/home/practice.vue'
+import child from '../pages/home/child.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -9,25 +12,22 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: resolve => require(['@/components/Home'],resolve)
+            component: pagesDefault
         },
         {
             path: '/table',
             name: 'table',
-            component: resolve => require(['@/components/Table'],resolve),
-            children:[
-                { path: '/table/next', component: Next},
-            ]
+            component: table
         },
-        // {
-        //     path: '/table/next',
-        //     name: 'next',
-        //     component: resolve => require(['@/components/Next'],resolve)
-        // },
+        {
+            path: '/child',
+            name: 'child',
+            component: child
+        },
         {
             path: '/practice',
             name: 'practice',
-            component: resolve => require(['@/components/Practice'],resolve)
+            component: practice
         }
     ]
 })
