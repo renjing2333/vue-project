@@ -1,0 +1,1 @@
+export const getTimeStamp = (date = new Date()) => Math.floor(Number(date) / 1000);

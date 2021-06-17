@@ -27,6 +27,7 @@
 
 <script>
 import HomeLayout from "../../layout/HomeLayout.vue";
+import { getTimeStamp } from '../../utils/time.js'
 export default {
   created() {
     
@@ -35,7 +36,7 @@ export default {
     submit() {
       var newobj = {
         name:'11',
-        time: Date.parse(new Date()),
+        time: getTimeStamp(),
         comment: this.value
       }
       if(newobj.comment !== '') {
