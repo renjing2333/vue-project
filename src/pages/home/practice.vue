@@ -27,16 +27,14 @@
 
 <script>
 import HomeLayout from "../../layout/HomeLayout.vue";
-import { getTimeStamp } from '../../utils/time.js'
 export default {
-  created() {
-    
+  mounted() {
   },
   methods: {
     submit() {
       var newobj = {
         name:'11',
-        time: getTimeStamp(),
+        time: this.dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
         comment: this.value
       }
       if(newobj.comment !== '') {
@@ -47,13 +45,15 @@ export default {
         });
       }
       this.value = ''
-    }
+    },
   },
   components: {
     HomeLayout,
   },
   data() {
     return {
+      dateDay: null,
+      dateTime: null,
       value: "",
       content:[]
     };

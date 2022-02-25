@@ -4,6 +4,7 @@ import pagesDefault from '../pages/home/default.vue'
 import table from '../pages/home/table.vue'
 import practice from '../pages/home/practice.vue'
 import child from '../pages/home/child.vue'
+import transform from '../pages/nobug/transform.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +29,11 @@ export default new Router({
             path: '/practice',
             name: 'practice',
             component: practice
+        },
+        {
+            path: '/transform',
+            name: 'transform',
+            component: transform
         }
     ]
 })
