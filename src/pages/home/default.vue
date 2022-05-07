@@ -93,19 +93,24 @@
       </el-table-column>
     </el-table>
 
-    <ol>
-    <li v-bind:key="item.text" v-for="item in todos">
-      {{ item.text }}
-    </li>
-  </ol>
+  <p>{{ message }}</p>
+  <button @click="reverseMessage">这是一个按钮</button>
 
+  <div>{{msg}}</div>
+  <input type="text" v-model="msg">
+  <button @click="addVege">添加一个蔬菜</button>
+    <center
+      :groceryList="groceryList"
+      :inputName="name"
+    ></center>
 
     </div>
   </home-layout>
 </template>
 
 <script>
-import HomeLayout from '../../layout/HomeLayout.vue'
+import HomeLayout from '../../layout/HomeLayout.vue';
+import Center from '../home/center';
 export default {
   data() {
         return {
@@ -126,12 +131,14 @@ export default {
             name: '王小虎',
             address: '上海市普陀区金沙江路 1516 弄'
           }],
-          todos: [
-            { text: '学习 JavaScript' },
-            { text: '学习 Vue' },
-            { text: '整个牛项目' },
-            { text: '整个牛项目hhh' }
+          message: 'Hello Vue.js!',
+          msg: '哈哈哈',
+          groceryList: [
+            '蔬菜——父组件',
+            '奶酪',
+            '随便其它什么人吃的东西'
           ],
+        name: '666',
         }
       },
 
@@ -140,17 +147,27 @@ export default {
     },
     components: {
         HomeLayout,
+        Center,
     },
 
     methods: {
-    cellStyle({column, columnIndex}) {
-      console.log(column, '66666');
+    cellStyle({columnIndex}) {
       if (columnIndex===0){
         return "border-left: 3px solid tomato;"
       }
       if (columnIndex===2) {
         return "border-right: 3px solid tomato;"
       }
+    }, 
+
+    reverseMessage: function () {
+      console.log('点击按钮666');
+    },
+
+    addVege() {
+      this.groceryList.push(this.msg);
+      this.msg = '';
+      console.log(this.groceryList, 'hhh');
     }
 }  
 }

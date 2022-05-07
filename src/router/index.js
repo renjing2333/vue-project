@@ -5,6 +5,7 @@ import table from '../pages/home/table.vue'
 import practice from '../pages/home/practice.vue'
 import child from '../pages/home/child.vue'
 import transform from '../pages/nobug/transform.vue'
+import center from '../pages/home/center.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +35,11 @@ export default new Router({
             path: '/transform',
             name: 'transform',
             component: transform
+        },
+        {
+            path: '/center',
+            name: 'center',
+            component: center
         }
     ]
 })
