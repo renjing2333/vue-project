@@ -175,7 +175,7 @@ export default {
 
 <style>
 .background-img {
-  height: 1000px;
+  /* height: 1000px; */
   background-image: url(../../assets/xiamu.jpg);
   background-size: cover;
 }
