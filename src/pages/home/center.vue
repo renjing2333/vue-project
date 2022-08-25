@@ -21,20 +21,29 @@
 </template>
 
 <script setup>
-// import { time } from "console";
-import { throttle } from "../../utils/time";
+// import { debounce } from "../../utils/time";
+const debounce = (fn, wait) => {
+  let timer;
+  return function() {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+        fn();
+    }, wait)
+  }
+}
 
-  // const  debounce = (fn, wait) => {
-  //     let timer;
-  //     return function() {
-  //       if(timer) {
-  //         clearTimeout(timer);
-  //       }
-  //       timer = setTimeout(() => {
-  //         fn();
-  //       }, wait)
-  //     }
-  //   }
+// const throttle = (fn, threshhold) => {
+//     let start = new Date();
+//     return function() {
+//         let now = new Date() - 0 ;
+//         if (now - start >= threshhold) {
+//             fn();
+//             start = now;
+//         }
+//     }
+// }
 
 export default {
   props: {
@@ -56,55 +65,15 @@ export default {
       // timer: 0,
     }
   },
-  computed: {
-    // 计算属性的 getter
-    // reversedMessage: function () {
-    //   // `this` 指向 vm 实例
-    //   return this.message.split('').reverse().join('')
-    // }
-  },
-  components: {},
+  computed: {},
   mounted() {
-    // console.log(this.groceryList, '999');
-    // let timeout = null;
-    // return function() {
-    //   clearTimeout(timeout);
-    //   timeout = setTimeout(()=>{
-    //     fn.apply(this, arguments);
-    //   }, 1000)
-    // }
-    let data = [[1,1,1], [2,2,2], [3,3,3, [3,4,5, [4,5,5]]], 4, 5, 6, 8] ;
-    // let res = [].concat.apply([], data)
-    // let res = [].concat(...data);
-    // let data = [1, 2, 3, [4, 5, 6], 7, ];
-    let res = data.flat(Infinity);
-    let data2 = [1, 2, 3, 5, [6, 7, 8]];
-    // let res2 = [].concat.apply([], data2);
-    let res2 = [].concat(...data2)
-    console.log(res2, 'res2');
-    // let ret = data.flatMap(item => {
-    //   if (item instanceof Array) {
-    //     return [...item]
-    //   } else {
-    //     return 100 * item;
-    //   }
-    // })
-    // console.log(ret, '8888');
-    console.log(res, '123456789');
-    
-    // data.forEach((item)=> {
-    //   item.forEach((item) => {
-    //     res.push(item);
-    //   })
-    // });
-    
-    },
+    console.log(666);
+},
   methods: {
     reversedMessage() {
       return this.message.split('').reverse().join('');
     },
     getBigImg(index) {
-      // console.log(index, this.images[index].url);
       this.pre_imgUrl = this.images[index].url;
       this.preImg = 'pre-img-block';
     },
@@ -112,44 +81,14 @@ export default {
       this.preImg = 'pre-img-none';
     },
 
-    // btn: debounce(()=> {
-    //   console.log('999');
-    // }, 1000),
+    // btn: throttle(()=> {
+    //   console.log('123456');
+    // }, 500)
 
-    btn: throttle(()=> {
+    btn: debounce(()=> {
       console.log('123456');
-    }, 2000)
+    }, 500)
 
-
-
-
-
-    // btn(){
-    //   this.debounce(() => {
-    //     console.log(666);
-    //   }, 1000)()
-    // },
-
-    // btn: debounce(()=>{
-    //     console.log('666');
-    // }, 2000),
-
-    // btn: throttle(()=>{
-    //     console.log('666');
-    // }),
-
-    // debounce(func, wait){
-    //   let timer = 0;
-    //   const that = this;
-    //   return function() {
-    //     if (that.timer) {
-    //       clearTimeout(that.timer);
-    //     }
-    //     that.timer = setTimeout(() => {
-    //       func();
-    //     }, wait)
-    //   }
-    // }
   }
 }
 </script>
